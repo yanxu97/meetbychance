@@ -1,0 +1,109 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block css %}<link href="{% static 'css/other.css' %}" rel="stylesheet"/>{% endblock %}
+
+
+{% block content %}
+     <Title>Meet by Chance: Travel Plan Detail</Title>
+
+
+<div style="margin: 5% 10%;">
+
+<h2>My Plan</h2>
+
+<div class="w3-table"  style="margin: 2% 10%">
+<table width="50%">
+    <tr>
+        <th>
+            plan_id:
+        </th>
+        <th>
+            {{ myplan.plan_id}}
+        </th>
+    </tr>
+    <tr>
+        <th>
+           Country:
+        </th>
+        <th>
+           {{ myplan.country }}
+        </th>
+    </tr>
+    <tr>
+        <th>
+          State:
+        </th>
+        <th>
+           {{ myplan.state }}
+        </th>
+    </tr>
+
+    <tr>
+        <th>
+     City:
+        </th>
+        <th>
+   {{ myplan.city }}
+        </th>
+    </tr>
+        </tr>
+        <tr>
+        <th>
+         Budget:
+        </th>
+        <th>
+         {{ myplan.budget }}
+        </th>
+    </tr>
+    <tr>
+        <th>
+        Start_time:
+        </th>
+        <th>
+     {{myplan.start_time  }}
+        </th>
+    </tr>
+        <tr>
+        <th>
+        End_time:
+        </th>
+        <th>
+    {{ myplan.end_time }}
+        </th>
+    </tr>
+    <tr>
+        <th>
+     my_id:
+        </th>
+        <th>
+ {{ myplan.user_id }}
+        </th>
+    </tr>
+</table>
+
+        {% if user.is_authenticated %}
+
+        <div style="width:500px; margin: 2% 2%">
+     <div style="float: left; width: 130px">
+    <form method="get" action="{% url 'users:plan_delete' user.id myplan.plan_id%}">
+    <button type="submit">Delete</button>
+    </form>
+     </div>
+ <div style="float: left; width: 225px">
+    <form method="get" action="{% url 'users:plan_up' user.id myplan.plan_id%}">
+    <button type="submit">Update</button>
+    </form>
+ </div>
+    </div>
+
+    {% endif %}
+
+</div>
+
+
+
+
+
+
+</div>
+{% endblock %}

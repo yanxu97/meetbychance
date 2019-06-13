@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}login{% endblock %}
+
+
+
+{% block content %}
+ <title>Meet by Chance Login</title>
+{% if message %}
+ {{ message }}
+{% endif %}
+<div class="form-wrapper" style="margin: 10% 40%;">
+    <h2>Login</h2>
+   <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+                <table>
+      {{ form.as_table }}
+        </table>
+{#      {% for field in form %}#}
+{#           <div class="fieldWrapper">#}
+{#        {{ field.errors }}#}
+{#        {{ field.label_tag }} {{ field }}#}
+{#        {% if field.help_text %}#}
+{#             <p class="help">{{ field.help_text|safe }}</p>#}
+{#        {% endif %}#}
+{#           </div>#}
+{#        {% endfor %}#}
+      <div class="button-wrapper submit" align="right">
+         <input type="submit" value="Login" />
+      </div>
+</div>
+
+{% endblock %}

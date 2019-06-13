@@ -1,0 +1,25 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block css %}<link href="{% static 'css/other.css' %}" rel="stylesheet"/>{% endblock %}
+
+
+{% block content %}
+<h2 style="margin: 5% 10%;">My Plan</h2>
+
+<div style="margin: 5% 10%;">
+
+{% if plan_list == ''%}
+    <h4 class="fa" style="margin: 1% 1% ;">No Plans yet... Let's Post a Plan!</h4>
+{% else %}
+<table>
+    {% for plan in plan_list  %}
+
+  <li> <a href="{% url 'users:plan_detail' user.id  plan.plan_id%}"> My plan  {{ forloop.counter }}</li>
+
+{% endfor %}
+</table>
+{% endif %}
+
+
+</div>
+{% endblock %}

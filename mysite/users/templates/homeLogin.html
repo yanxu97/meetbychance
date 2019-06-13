@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}home{% endblock %}
+
+
+{% block content %}
+<style>
+.mySlides {display: none}
+</style>
+
+<title>Home</title>
+
+{% csrf_token %}
+{% load static %}
+      <!-- Header -->
+<header class="w3-display-container w3-content w3-hide-small" style="max-width:1500px">
+
+    <div class="mySlides w3-display-container w3-center">
+    <img src="/static/homepic/charlotte.jpg" style="width:100%" alt="charlotte" height="750">
+            <div class="w3-display-middle w3-container w3-text-white w3-padding-32">
+      <h1>Join Us to Meet More Travelers!</h1>
+    </div>
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Charlotte, USA</h3>
+    </div>
+  </div>
+      <div class="mySlides w3-display-container w3-center">
+    <img src="/static/homepic/chicago.jpg" style="width:100%" alt="chicago" height="750">
+          <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h1>Join Us to Meet More Travelers!</h1>
+    </div>
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Chicago, USA</h3>
+    </div>
+  </div>
+      <div class="mySlides w3-display-container w3-center">
+    <img src="/static/homepic/new york.jpg" style="width:100%" alt="nyc" height="750">
+          <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h1>Join Us to Meet More Travelers!</h1>
+    </div>
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>New York, USA</h3>
+    </div>
+  </div>
+      <div class="mySlides w3-display-container w3-center">
+    <img src="/static/homepic/new york2.jpg" style="width:100%" alt="nyc2" height="750">
+          <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h1>Join Us to Meet More Travelers!</h1>
+    </div>
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>New York, USA</h3>
+    </div>
+  </div>
+      <div class="mySlides w3-display-container w3-center">
+    <img src="/static/homepic/san fran.jpg" style="width:100%" alt="sf" height="750">
+          <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h1>Join Us to Meet More Travelers!</h1>
+    </div>
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>San Francisco, USA</h3>
+    </div>
+  </div>
+      <div class="mySlides w3-display-container w3-center">
+    <img src="/static/homepic/paris.jpg" style="width:100%" alt="paris" height="750">
+          <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h1>Join Us to Meet More Travelers!</h1>
+    </div>
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Paris, France</h3>
+    </div>
+  </div>
+      <div class="mySlides w3-display-container w3-center">
+    <img src="/static/homepic/london.jpg" style="width:100%" alt="london" height="750">
+          <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h1>Join Us to Meet More Travelers!</h1>
+    </div>
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>London, England</h3>
+    </div>
+  </div>
+    <div class="mySlides w3-display-container w3-center">
+    <img src="/static/homepic/Cinque Terre.jpg" style="width:100%" alt="italy" height="750">
+        <div class="w3-display-middle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h1>Join Us to Meet More Travelers!</h1>
+    </div>
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Cinque Terre, Italy</h3>
+    </div>
+    </div>
+
+  <!-- Newsletter -->
+  <!--div class="w3-container">
+    <div class="w3-panel w3-padding-16 w3-black w3-opacity w3-card w3-hover-opacity-off">
+      <h2>Travel with New Friends Now.</h2>
+      <p>Join Us Today.</p>
+      <label>E-mail</label>
+      <input class="w3-input w3-border" type="text" placeholder="Your Email address">
+      <button type="button" class="w3-button w3-red w3-margin-top">JOIN</button>
+    </div>
+  </div-->
+
+</header>
+
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 4000);
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") === -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+{% endblock %}

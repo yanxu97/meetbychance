@@ -1,0 +1,31 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block css %}<link href="{% static 'css/other.css' %}" rel="stylesheet"/>{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meet BY Chance: Search Results</title>
+</head>
+<div style="margin: 5% 40%;">
+<h2>Search Results...</h2>
+
+<body>
+
+{% for plan in search_result %}
+    <li>Country: {{ plan.country }} </li>
+    <li>State: {{ plan.state }} </li>
+    <li>City: {{ plan.city }} </li>
+    <li>Budget: {{ plan.budget }} </li>
+    <li>Start_time: {{ plan.start_time }} </li>
+    <li>End_time: {{ plan.end_time }} </li>
+    <hr>
+
+{% endfor %}
+</body>
+</div>
+</html>
+
+{% endblock %}
+

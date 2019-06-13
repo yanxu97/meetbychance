@@ -1,0 +1,346 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+{% load static  %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div  style="margin: 5% 10% ;" >
+    <h2 >My Matched Plans</h2></div>
+    {% if myplan_1.status != 'matched'%}
+        {% if myplan_2.status != 'matched'  %}
+
+            {% if myplan_3.status != 'matched'%}
+                    <h4 class="fa" style="margin: 1% 12% ;">No Matched Plans yet...</h4>
+                <br>
+                <br> <br> <br>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+
+{% if myplan_1.status == 'matched' %}
+<div class="w3-table" style="margin: 5% 20% ;">
+<h4>My first trip:</h4>
+<ul id="trip_1">
+    <table width="83%" >
+        <tr>
+            <th>matched_user_id: </th><th>{{ matched_user2_1.id}}</th> </tr>
+        <tr> <th>matched_user_username: </th><th> {{ matched_user2_1.username }}</th></tr>
+        <tr> <th>matched_user_email: </th><th>{{ matched_user2_1.email }}</th></tr>
+        <tr>
+            <th>
+                plan_id:
+            </th>
+            <th>
+                {{ matched_plan2_1.plan_id}}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Country:
+            </th>
+            <th>
+               {{ matched_plan2_1.country }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+              State:
+            </th>
+            <th>
+               {{ matched_plan2_1.state }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                City:
+            </th>
+            <th>
+                {{ matched_plan2_1.city}}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               Budget:
+            </th>
+            <th>
+               {{ matched_plan2_1.budget }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               Start_time:
+            </th>
+            <th>
+                {{matched_plan2_1.start_time  }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               End_time:
+            </th>
+            <th>
+                {{ matched_plan2_1.end_time }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               My Status:
+            </th>
+            <th>
+
+                {{ matched_plan_1.status}}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               My Partner's Status:
+            </th>
+            <th>
+
+                {{ partner_matchList_1.status}}
+            </th>
+        </tr>
+
+    </table>
+
+</ul>
+    <div style="width:400px;">
+     <div style="float: left; width: 130px">
+    <form action="{%  url 'users:confirm' user.id myplan_1.plan_id%}" method=''>
+     <button type="submit">Confirm</button>
+    </form>
+     </div>
+ <div style="float: left; width: 225px">
+    <form action="{%  url 'users:reject' user.id myplan_1.plan_id %}" method=''>
+      <button type="submit">Reject</button>
+    </form>
+ </div>
+    </div>
+
+</div>
+{% endif %}
+
+    {% if myplan_2.status == 'matched' %}
+<div class="w3-table" style="margin: 5% 20% ;">
+<h4>My second trip:</h4>
+<ul id="trip_2">
+
+        <table width="100%">
+        <tr>
+            <th>matched_user_id: </th><th>{{ matched_user2_2.id}}</th> </tr>
+        <tr> <th>matched_user_username: </th><th> {{ matched_user2_2.username }}</th></tr>
+        <tr> <th>matched_user_email: </th><th>{{ matched_user2_2.email }}</th></tr>
+        <tr>
+            <th>
+                plan_id:
+            </th>
+            <th>
+                {{ matched_plan2_2.plan_id}}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Country:
+            </th>
+            <th>
+               {{ matched_plan2_2.country }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+              State:
+            </th>
+            <th>
+               {{ matched_plan2_2.state }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                City:
+            </th>
+            <th>
+                {{ matched_plan2_2.city}}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               Budget:
+            </th>
+            <th>
+               {{ matched_plan2_2.budget }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               Start_time:
+            </th>
+            <th>
+                {{matched_plan2_2.start_time  }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               End_time:
+            </th>
+            <th>
+                {{ matched_plan2_2.end_time }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               My Status:
+            </th>
+            <th>
+
+                {{ matched_plan_2.status}}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               My Partner's Status:
+            </th>
+            <th>
+
+                {{ matched_plan2_2.status}}
+            </th>
+        </tr>
+
+    </table>
+
+</ul>
+    <div style="width:400px;">
+     <div style="float: left; width: 130px">
+    <form action="{%  url 'users:confirm_1' user.id myplan_2.plan_id %}" method=''>
+     <button type="submit">Confirm</button>
+    </form>
+     </div>
+ <div style="float: left; width: 225px">
+    <form action="{%  url 'users:reject_1' user.id myplan_2.plan_id%}" method=''>
+      <button type="submit">Reject</button>
+    </form>
+
+ </div>
+    </div>
+
+</div>
+{% endif %}
+
+     {% if myplan_3.status == 'matched' %}
+<div class="w3-table" style="margin: 5% 20% ;">
+
+<h4>My third trip:</h4>
+
+{# the function doesn't work but keep it first   #}
+<script>
+    {#alert("dsafdsafds")#}
+    checknull(travel_plan, matched_user, id){
+        if (travel_plan == null || matched_user == null) {
+            alert("1234")
+            document.getElementById(id).children[0].style.display = "none"
+        }
+    }
+</script>
+<ul id="trip_3">
+
+
+        <table width="100%">
+        <tr>
+            <th>matched_user_id: </th><th>{{ matched_user2_3.id}}</th> </tr>
+        <tr> <th>matched_user_username: </th><th> {{ matched_user2_3.username }}</th></tr>
+        <tr> <th>matched_user_email: </th><th>{{ matched_user2_3.email }}</th></tr>
+        <tr>
+            <th>
+                plan_id:
+            </th>
+            <th>
+                {{ matched_plan2_3.plan_id}}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Country:
+            </th>
+            <th>
+               {{ matched_plan2_3.country }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+              State:
+            </th>
+            <th>
+               {{ matched_plan2_3.state }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+                City:
+            </th>
+            <th>
+                {{ matched_plan2_3.city}}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               Budget:
+            </th>
+            <th>
+               {{ matched_plan2_3.budget }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               Start_time:
+            </th>
+            <th>
+                {{matched_plan2_3.start_time  }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               End_time:
+            </th>
+            <th>
+                {{ matched_plan2_3.end_time }}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               My Status:
+            </th>
+            <th>
+
+                {{ matched_plan_3.status}}
+            </th>
+        </tr>
+        <tr>
+            <th>
+               My Partner's Status:
+            </th>
+            <th>
+
+                {{ matched_plan2_3.status}}
+            </th>
+        </tr>
+    </table>
+</ul>
+    <div style="width:400px;">
+     <div style="float: left; width: 130px">
+    <form action="{%  url 'users:confirm_2' user.id myplan_3.plan_id %}" method=''>
+     <button type="submit">Confirm</button>
+    </form>
+     </div>
+ <div style="float: left; width: 225px">
+    <form action="{%  url 'users:reject_2' user.id myplan_3.plan_id %}" method=''>
+      <button type="submit">Reject</button>
+    </form>
+ </div>
+    </div>
+
+</div>
+    {% endif %}
+
+{% endblock %}

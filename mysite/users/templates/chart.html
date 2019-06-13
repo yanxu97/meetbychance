@@ -1,0 +1,38 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+
+
+
+
+
+{% block content %}
+{% load static  %}
+      <br><br><br>
+
+    <br><br>
+<div id="container"></div>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<script>
+  Highcharts.chart('container', {
+      chart: {
+          type: 'column'
+      },
+      title: {
+          text: 'Hottest City '
+      },
+      xAxis: {
+          categories: [
+            {% for entry in dataset %}'{{ entry.city }} '{% if not forloop.last %}, {% endif %}{% endfor %}
+          ]
+      },
+      series: [{
+          name: 'City',
+          data: [
+            {% for entry in dataset %}{{ entry.count }}{% if not forloop.last %}, {% endif %}{% endfor %}
+          ],
+          color: '#1D2B71'
+      }, ]
+  });
+</script>
+
+{% endblock %}

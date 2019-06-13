@@ -1,0 +1,227 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block css %}<link href="{% static 'css/other.css' %}" rel="stylesheet"/>{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Meet by Chance: Update Travel Plan</title>
+</head>
+<body>
+
+      <h2 style="margin: 5% 10%;">Update My Plan</h2>
+        <div style="margin: 5% 40%;">
+<form action="{% url 'users:plan_update' user.id myplan.plan_id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <br>
+
+
+            <div>
+				<span style="display:inline-block;width:70px;">Country</span>
+
+	<select name="country" >
+		<option>-------</option>
+     <option>Austria</option>
+ <option>Belgium</option>
+   <option>Bosnia and Herzegovina</option>
+   <option>Bulgaria</option>
+		<option>China</option>
+   <option>Croatia</option>
+   <option>Czech Republic</option>
+   <option>Denmark</option>
+   <option>England</option>
+		<option>Estonia</option>
+    <option>Finland</option>
+    <option>France</option>
+    <option>Germany</option>
+    <option>Greece</option>
+    <option>Hungary</option>
+   <option>Iceland</option>
+    <option>Ireland</option>
+    <option>Italy</option>
+    <option>Latvia</option>
+    <option>Lithuania</option>
+    <option>Luxembourg</option>
+    <option>Malta</option>
+    <option>Netherlands</option>
+    <option>Norway</option>
+    <option>Poland</option>
+    <option>Portugal</option>
+    <option>Romania</option>
+    <option>Russia</option>
+    <option>Scotland</option>
+    <option>Serbia</option>
+    <option>Slovakia</option>
+    <option>Slovenia</option>
+    <option>Spain</option>
+    <option>Sweden</option>
+    <option>Switzerland</option>
+    <option>Turkey</option>
+	<option>United States</option>
+    <option>Ukraine</option>
+</select>
+				<!--input type="text" name="country"-->
+			</div>
+
+			<div>
+				<span style="display:inline-block;width:70px;">State</span>
+				<select name="state" >
+                <option>-------</option>
+                   <option>unknown</option>
+                    <option>Alabama </option>
+                <option>Alaska </option>
+                <option>Arizona </option>
+                <option>Arkansas </option>
+                <option>California </option>
+                <option>Colorado </option>
+                <option>Connecticut </option>
+                <option>Delaware </option>
+                <option>Florida </option>
+                <option>Georgia </option>
+                <option>Hawaii </option>
+                <option>Idaho </option>
+                <option>Illinois  </option>
+                <option>Indiana</option>
+                <option>Iowa </option>
+                <option>Kansas </option>
+                <option>Kentucky </option>
+                <option>Louisiana </option>
+                <option>Maine </option>
+                <option>Maryland </option>
+                <option>Massachusetts </option>
+                <option>Michigan </option>
+                <option>Minnesota </option>
+                <option>Mississippi </option>
+                <option>Missouri </option>
+                <option>Montana </option>
+                    <option>Nebraska </option>
+                <option>Nevada </option>
+                <option>New Hampshirev </option>
+                <option>New Jersey </option>
+                <option>New Mexico </option>
+                <option>New York </option>
+                <option>North Carolina </option>
+                <option>North Dakota </option>
+                <option>Ohio </option>
+                <option>Oklahoma </option>
+                <option>Oregon </option>
+                <option>Pennsylvania </option>
+                    <option>Rhode Island </option>
+                <option>South Carolina </option>
+                <option>South Dakota </option>
+                <option>Tennessee </option>
+                <option>Texas </option>
+                <option>Utah </option>
+                <option>Vermont </option>
+                <option>Virginia </option>
+                <option>Washington </option>
+                <option>West Virginia </option>
+                <option>Wisconsin </option>
+                <option>Wyoming </option>
+
+                </select>
+			</div>
+
+			<div>
+				<span style="display:inline-block;width:70px;">City</span>
+				<select name="city" >
+                <option>-------</option>
+                <option>Amsterdam</option>
+                <option>Athens</option>
+                <option>Barcelona</option>
+                <option>Belgrade</option>
+                <option>Bergen</option>
+                <option>Berlin</option>
+                <option>Bratislava</option>
+                <option>Bruges</option>
+                <option>Brussels</option>
+                <option>Bucharest</option>
+                <option>Budapest</option>
+                <option>Český Krumlov</option>
+                     <option>Champaign</option>
+                    <option>Chicago</option>
+                <option>Copenhagen</option>
+                <option>Dublin</option>
+                <option>Dubrovnik</option>
+                <option>Edinburgh</option>
+                <option>Florence</option>
+                <option>Hamburg</option>
+                <option>Helsinki</option>
+                <option>Ibiza</option>
+                <option>Interlaken</option>
+                <option>Istanbul</option>
+                <option>Kiev</option>
+                <option>Krakow</option>
+                <option>Lisbon</option>
+                <option>Ljubljana</option>
+                <option>London</option>
+                <option>Luxembourg City</option>
+                <option>Madrid</option>
+                <option>Milan</option>
+                <option>Moscow</option>
+                <option>Munich</option>
+                <option>Naples</option>
+                <option>Nice</option>
+                <option>Oslo</option>
+                <option>Paris</option>
+                <option>Prague</option>
+                <option>Reykjavik</option>
+                <option>Riga</option>
+                <option>Rome</option>
+                <option>Saint Petersburg</option>
+                <option>Salzburg</option>
+                <option>Santorini</option>
+                <option>Sarajevo</option>
+                <option>Sofia</option>
+                <option>Split</option>
+                <option>Stockholm</option>
+                <option>Tallinn</option>
+                <option>Tenerife</option>
+                    <option>Urbana</option>
+                <option>Valletta</option>
+                <option>Venice</option>
+                <option>Vienna</option>
+                <option>Vilnius</option>
+                <option>Warsaw</option>
+                <option>Zagreb</option>
+                <option>Zurich</option>
+                <option>Beijing</option>
+                <option>Shanghai</option>
+                <option>Chengdu</option>
+                <option>HongKong</option>
+                <option>New York</option>
+                <option>Houston</option>
+                <option>Los Angeles</option>
+               </select>
+
+			</div>
+
+            <div>
+				<span style="display:inline-block;width:70px;">Budget</span>
+				<input type="text" name="budget" >
+			</div>
+
+			<div>
+				<span style="display:inline-block;width:70px;">Start_Time</span>
+                <input type="text" name="start_time">
+            </div>
+
+			<div>
+				<span style="display:inline-block;width:70px;">End_Time</span>
+				<input type="text" name="end_time">
+			</div>
+         <br>
+             <p align="right">
+                 <button type="submit">Update</button>
+             </p>
+
+
+
+    </form>
+  </div>
+
+</body>
+</html>
+{% endblock %}

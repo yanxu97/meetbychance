@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}join{% endblock %}
+
+
+{% block content %}
+ <title>Meet by Chance Registration</title>
+<div class="form-wrapper" style="margin: 10% 40%;">
+    <h2>Join Us</h2>
+   <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+       <table align="left">
+      {{ form.as_table }}
+        </table>
+{#      {% for field in form %}#}
+{#           <div class="fieldWrapper">#}
+{#            <span style="display:inline-block;width:60px;">#}
+{#        {{ field.errors }}#}
+{#        {{ field.label_tag }} {{ field }}#}
+{#        {% if field.help_text %}#}
+{#             <p class="help">{{ field.help_text|safe }}</p>#}
+{#        {% endif %}#}
+{#            </span>#}
+{#           </div>#}
+{#        {% endfor %}#}
+      <div class="button-wrapper submit">
+          <p align="right">
+              <input type="submit" value="Submit" >
+          </p>
+      </div>
+   </form>
+</div>
+{% endblock %}

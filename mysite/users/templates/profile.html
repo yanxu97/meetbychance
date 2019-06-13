@@ -1,0 +1,54 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block css %}<link href="{% static 'css/other.css' %}" rel="stylesheet"/>{% endblock %}
+{% block content %}
+    <Title>My Profile</Title>
+
+
+<h2 style="margin: 5% 10%;">My Profile</h2>
+
+<div style="margin: 5% 30%;">
+
+<ul>
+    <table width="100%" class="w3-table">
+        <tr>
+            <th>Username: </th>
+            <th>{{ user.username }}</th>
+        </tr>
+        <tr>
+            <th>Email: </th>
+            <th>{{ user.email }}</th>
+        </tr>
+        <tr>
+            <th>
+                First Name: </th>
+            <th>{{ user.first_name }}
+            </th>
+        </tr>
+        <tr>
+            <th>Last Name: </th>
+            <th>{{ user.last_name }}</th>
+        </tr>
+        <tr>
+            <th>Organization:</th>
+            <th>{{ user.profile.org }}</th>
+        </tr>
+        <tr>
+            <th>Telephone: </th>
+            <th>{{ user.profile.telephone }}</th>
+        </tr>
+    </table>
+
+</ul>
+
+
+{% if user.is_authenticated %}
+    <form method="get" action="{% url 'users:profile_update' user.id %}">
+     <p align="center">
+    <button type="submit">Edit</button>
+     </p>
+    </form>
+{% endif %}
+</div>
+
+{% endblock %}

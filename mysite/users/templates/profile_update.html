@@ -1,0 +1,41 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block css %}<link href="{% static 'css/other.css' %}" rel="stylesheet"/>{% endblock %}
+
+{% block content %}
+ <title>Meet BY Chance: Update Profile</title>
+
+<h2 style="margin: 5% 10%;">Update My Profile</h2>
+
+<div style="margin: 5% 40%;">
+
+<div class="form-wrapper">
+   <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+       <table>
+      {{ form.as_table }}
+        </table>
+{#     {% for field in form %}#}
+{#          <div class="fieldWrapper">#}
+{# <span style="display:inline-block;width:60px;">#}
+{#        {{ field.errors }}#}
+{#       {{ field.label_tag }} {{ field }}#}
+{#       {% if field.help_text %}#}
+{#            <p class="help">{{ field.help_text|safe }}</p>#}
+{#        {% endif %}#}
+{#           </span>#}
+{#          </div>#}
+{#        {% endfor %}#}
+   <br>
+     <div class="button-wrapper submit">
+         <p align="right">
+             <input type="submit" value="Update" />
+         </p>
+
+      </div>
+   </form>
+</div>
+
+
+</div>
+{% endblock %}

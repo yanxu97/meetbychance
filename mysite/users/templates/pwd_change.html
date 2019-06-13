@@ -1,0 +1,34 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block css %}<link href="{% static 'css/other.css' %}" rel="stylesheet"/>{% endblock %}
+
+{% block content %}
+    <title>Meet BY Chance: Change Password</title>
+    <div style="margin: 15% 40%;">
+<h2>Change Password</h2>
+{% if message %}
+ {{ message }}
+{% endif %}
+<div class="form-wrapper">
+   <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+                <table>
+      {{ form.as_table }}
+        </table>
+{#      {% for field in form %}#}
+{#           <div class="fieldWrapper">#}
+{#        {{ field.errors }}#}
+{#        {{ field.label_tag }} {{ field }}#}
+{#        {% if field.help_text %}#}
+{#             <p class="help">{{ field.help_text|safe }}</p>#}
+{#        {% endif %}#}
+{#           </div>#}
+{#        {% endfor %}#}
+   <br>
+      <div class="button-wrapper submit">
+         <input type="submit" value="Submit" />
+      </div>
+   </form>
+</div>
+    </div>
+{% endblock %}

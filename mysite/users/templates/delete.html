@@ -1,0 +1,29 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block css %}<link href="{% static 'css/other.css' %}" rel="stylesheet"/>{% endblock %}
+
+
+{% block content %}
+<div style="margin: 15% 40%;">
+<h2>My Plan</h2>
+
+<ul>
+
+    <li>plan_id: {{ travel_plan.plan_id}} </li>
+    <li>Country: {{ travel_plan.country }} </li>
+    <li>State: {{ travel_plan.state }} </li>
+    <li>City: {{ travel_plan.city }} </li>
+    <li>Budget: {{ travel_plan.budget }} </li>
+    <li>start_time: {{travel_plan.start_time  }} </li>
+    <li>end_time: {{ travel_plan.end_time }} </li>
+    <li>my_id: {{ travel_plan.user_id }} </li>
+
+</ul>
+
+{% if user.is_authenticated %}
+
+    <button><a href="{% url 'users:delete' user.id%}">Delete</a></button>
+
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% block css %}<link href="{% static 'css/other.css' %}" rel="stylesheet"/>{% endblock %}
+
+
+{% block content %}
+     <Title>Meet by Chance: Post Travel Plan</Title>
+
+
+
+<h2 style="margin: 5% 10%;">Post Travel Plan</h2>
+
+<div style="margin: 5% 40%;">
+<p class="form-wrapper">
+
+     <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+         <table>
+      {{ form.as_table }}
+        </table>
+{#      {% for field in form %}#}
+{##}
+{#          <div class="fieldWrapper">#}
+{#          <span style="display:inline-block;width:60px;">#}
+{#        {{ field.errors }}#}
+{#       {{ field.label_tag }} {{ field }}#}
+{#       {% if field.help_text %}#}
+{#            <p class="help">{{ field.help_text|safe }}</p>#}
+{#        {% endif %}#}
+{#            </span>#}
+{#          </div>#}
+{##}
+{#        {% endfor %}#}
+
+<br>
+     <p align="right">
+        <button type="submit">Post</button>
+      </p>
+   </form>
+</div>
+
+
+</div>
+{% endblock %}
+
